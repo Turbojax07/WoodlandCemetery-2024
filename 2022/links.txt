@@ -1,0 +1,3 @@
+API (Replit): "https://replit.com/@Illusion705/WoodlandCemeteryAPI%23index.js"
+Frontend (Replit): "https://replit.com/@superpsych10/WoodlandCemeteryPrototype"
+Frontend (Github): "https://github.com/Hydrus73/WoodlandCemeteryPrototype"
