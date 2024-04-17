@@ -1,0 +1,388 @@
+/* Contains vars for each element. */
+* {
+    --button-hover-color: rgb(100, 114, 46);
+    --grave-background: rgba(255, 255, 0, 0.25);
+    --grave-border-color: rgba(255, 255, 0);
+    --general-background: rgba(135, 149, 81, 0.9);
+    --general-border: 3px solid rgba(80, 94, 26, 1);
+    --hide-color: rgb(220, 220, 220);
+    --landmark-background: rgba(16, 88, 196, 0.25);
+    --landmark-border-color: rgb(16, 88, 196);
+    --select-shadow: 0 0 0 3px rgba(172, 217, 232, 0.25);
+}
+
+* {
+    color: white;
+    font-family: sans-serif;
+    margin: 0;
+    z-index: 2;
+}
+
+*:hover {
+    cursor: default;
+}
+
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(85, 99, 31);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 5px;
+    border-top-right-radius: 5px;
+}
+ 
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(115, 129, 61);
+}
+
+html {
+    background: var(--general-background);
+}
+
+#loading {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 10px;
+    font-size: 17pt;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
+    padding: 2px 10px 2px 10px;
+    position: absolute;
+    right: 0;
+    top: 1%;
+    width: 4.4em;
+    z-index: 2;
+}
+
+#search-form {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 10px;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    padding: 2px 10px 2px 10px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 1%;
+    width: 280px;
+    z-index: 2;
+}
+
+#name-input {
+    border: var(--general-border);
+    border-radius: 10px;
+    color: black;
+    height: 2em;
+    font-size: 12px;
+    margin: 5px;
+    padding: 2px 10px 2px 10px;
+    width: 65%;
+}
+
+#name-input:hover {
+    cursor: text;
+}
+
+#show-notable-burials {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 10px;
+    font-size: 12pt;
+    height: 2em;
+    margin: 5px;
+    padding: 2px 5px 2px 5px;
+    transition: background 0.5s;
+}
+
+#show-notable-burials:hover {
+    background: var(--button-hover-color);
+    cursor: pointer;
+}
+
+#submit-search-form {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 10px;
+    font-size: 12pt;
+    height: 2em;
+    margin: 5px;
+    padding: 2px 5px 2px 5px;
+    transition: background 0.5s;
+}
+
+#submit-search-form:hover {
+    background: var(--button-hover-color);
+    cursor: pointer;
+}
+
+#person-data {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 10px;
+    display: none;
+    left: 10px;    
+    max-height: 80%;
+    max-width: 30%;
+    min-width: 20%;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    z-index: 2;
+}
+
+#person-count {
+    color: black;
+    font-size: 17pt;
+    margin: 7px 5px 7px 5px;
+    text-shadow: rgba(80, 94, 26, 1) 0 0 3px;
+}
+
+.person-record {
+    margin-left: 5px;
+}
+
+.person-record h2 {
+    margin-left: 5px;
+}
+
+.person-record p {
+    margin-left: 5px;
+}
+
+.person-record hr {
+    background: rgba(80, 94, 26, 1);
+    border: none;
+    height: 3px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: calc(100% - 5px);
+}
+
+.person-info {
+    width: 90%;
+}
+
+.person-name {
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.find-a-grave-link {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 10px;
+    font-size: 12pt;
+    height: 2em;
+    margin: 5px;
+    padding: 2px 5px 2px 5px;
+    transition: background 0.5s;
+}
+
+.sketchfab-view {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 10px;
+    font-size: 12pt;
+    height: 2em;
+    margin: 5px;
+    padding: 2px 5px 2px 5px;
+    transition: background 0.5s;
+}
+
+#person-hide {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 5px;
+    color: var(--hide-color);
+    cursor: pointer;
+    height: 1.5em;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 1.5em;
+}
+
+#plot-data {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 10px;
+    display: none;
+    left: 10px;
+    padding: 2px 5px 2px 5px;
+    position: absolute;
+    top: 10px;
+    min-width: 10%;
+    width: max-content;
+    z-index: 2;
+}
+
+#plot-hide {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 5px;
+    color: var(--hide-color);
+    cursor: pointer;
+    height: 1.5em;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 1.5em;
+}
+
+#plot-name {
+    margin: 5px 10px 5px 10px;
+}
+
+#plot-border {
+    background: rgba(80, 94, 26, 1);
+    border: none;
+    height: 3px;
+    width: 100%;
+}
+
+#plot-inhabitants {
+    margin: 5px 20px 5px 10px;
+}
+
+.plot-inhabitant {
+    cursor: pointer;
+}
+
+#sketchfab-container {
+    background-color: var(--general-background);
+    border: var(--general-border);
+    border-radius: 15px;
+    display: none;
+    height: 60%;
+    justify-content: center;
+    left: 30%;
+    position: absolute;    
+    top: 20%;
+    width: 60%;
+    z-index: 2;
+}
+
+#sketchfab-title {
+    padding: 2px 5px 2px 5px;
+}
+
+#sketchfab-border {
+    background: rgba(80, 94, 26, 1);
+    border: none;
+    height: 3px;
+    width: 100%;
+}
+
+#sketchfab-embed {
+    border: var(--general-border);
+    border-radius: 10px;
+    height: 80%;
+    left: 5%;
+    margin: auto;
+    position: relative;
+    top: 5%;
+    width: 90%;
+}
+
+#sketchfab-hide {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 5px;
+    color: var(--hide-color);
+    cursor: pointer;
+    height: 1.5em;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 1.5em;
+}
+
+#label {
+    background: var(--general-background);
+    border: var(--general-border);
+    border-radius: 10px;
+    display: none;
+    padding: 2px 5px 2px 5px;
+    position: absolute;
+}
+
+#map-image {
+    aspect-ratio: 1632/866;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+#map-highlights {
+    aspect-ratio: 1632/866;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.landmark {
+    fill: var(--landmark-background);
+    stroke: var(--landmark-border-color);
+    stroke-width: 3px;
+}
+
+.grave {
+    fill: var(--grave-background);
+    opacity: 0;
+    stroke: var(--grave-border-color);
+    stroke-width: 3px;
+}
+  
+/* Custom animation classes because I don't like JQuery. */
+.fade-in {
+    animation: fadeIn 0.5s linear 1;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s linear 1;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
