@@ -257,54 +257,11 @@ function displayPerson(personInfo) {
     // Creating a list of people that match the description.
     let matches = [];
 
-    if (personInfo.indexOf("(") != -1) {
-        // Splitting the info string into different parts.
-        // Normally, I'd split on the spaces, but this allows me to separat the names and numbers easier.
-        let splitInfo = personInfo.split(" (");
-
-        // Splitting the first array into two smaller ones.
-        let namePart = splitInfo[0].split(" ");
-        let numPart = splitInfo[1].replace(")", "").split(" ");
-
-        // Getting the values for each input.
-        let firstName = (namePart.length >= 2 ? namePart[0] : "");
-        let middleName = (namePart.length == 3 ? namePart[1] : "");
-        let lastName = namePart[namePart.length - 1];
-        let section = numPart[0];
-        let lotNumber = (numPart.length == 2 ? numPart[1] : "");
-
-        getPersonMatches([firstName, middleName, lastName, section, lotNumber]).forEach(match => {
-            matches.push(match);
-        });
-    } else if (personInfo == "") {
-        getPersonMatches(["", "", "", "", ""]).forEach(match => {
-            matches.push(match);
-        })
-    } else {
-        // Since there were no parenthesis, the string is probably just a name.
-        let names = personInfo.split(" ");
-
-        if (names.length == 1) {
-            // name could be either first, last, or middle.
-            getPersonMatches([names[0], "", "", "", ""]).forEach(match => {
-                matches.push(match);
-            });
-
-            getPersonMatches(["", names[0], "", "", ""]).forEach(match => {
-                matches.push(match);
-            });
-
-            getPersonMatches(["", "", names[0], "", ""]).forEach(match => {
-                matches.push(match);
-            });
-        } else if (names.length == 2) {
-            getPersonMatches([names[0], "", names[1], "", ""]).forEach(match => {
-                matches.push(match);
-            });
-        } else if (names.length == 3) {
-            getPersonMatches([names[0], names[1], names[2], "", ""]).forEach(match => {
-                matches.push(match);
-            });
+    // Searching all data.
+    for (let entry of sheetData.all) {
+        // Checking the description against the people in the database.
+        if (x.toLowerCase() in `${entry[FIRST_NAME]} ${entry[MIDDLE_NAME]} ${entry[LAST_NAME]} (${entry[SECTION]} ${entry[LOT_NUMBER]})`.toLowerCase()) {
+            matches.push(entry);
         }
     }
 
