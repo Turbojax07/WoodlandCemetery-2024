@@ -384,28 +384,6 @@ function displayPerson(personInfo) {
     }
 }
 
-function getPersonMatches(info) {
-    // A list of people that have data matching the info parameter.
-    let matches = [];
-
-    // Searching all data.
-    for (let entry of sheetData.all) {
-        // Checking the first name, middle name, last name, section, and lot numbers
-        if (
-            (info[0] == "" || entry[FIRST_NAME].toLowerCase() == info[0].toLowerCase()) &&
-            (info[1] == "" || entry[MIDDLE_NAME].toLowerCase() == info[1].toLowerCase()) &&
-            (info[2] == "" || entry[LAST_NAME].toLowerCase() == info[2].toLowerCase()) &&
-            (info[3] == "" || entry[SECTION].toLowerCase() == info[3].toLowerCase()) &&
-            (info[4] == "" || entry[LOT_NUMBER].toLowerCase() == info[4].toLowerCase())
-        ) {
-            matches.push(entry);
-        }
-    }
-
-    // Returning the matches.
-    return matches;
-}
-
 function displaySketchFab(person) {
     // Showing the sketchfab container.
     document.getElementById("sketchfab-container").style.display = "block";
