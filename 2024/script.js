@@ -260,7 +260,10 @@ function displayPerson(personInfo) {
     // Searching all data.
     for (let entry of sheetData.all) {
         // Checking the description against the people in the database.
-        if (x.toLowerCase() in `${entry[FIRST_NAME]} ${entry[MIDDLE_NAME]} ${entry[LAST_NAME]} (${entry[SECTION]} ${entry[LOT_NUMBER]})`.toLowerCase()) {
+        let entryString = `${entry[FIRST_NAME]} ${entry[MIDDLE_NAME]} ${entry[LAST_NAME]} (${entry[SECTION]} ${entry[LOT_NUMBER]})`.toLowerCase()
+        entryString = entryString.replace(/  */g, " ");
+        if (entryString.includes(personInfo.toLowerCase())) {
+            console.log(entryString);
             matches.push(entry);
         }
     }
